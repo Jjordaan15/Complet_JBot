@@ -1,0 +1,122 @@
+<!--
+  Generated template for the DriverOppPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>DriverOpp</ion-title>
+  </ion-navbar>
+
+  <style>
+    input[type=text] {
+      width: 100%;
+      box-sizing: border-box;
+      border: 2px solid #4D82E9;
+      border-radius: 4px;
+      color: blue;
+      font-size: 16px;
+      background-color: white;
+      background-image: url('https://www.aplin.com/job-search');
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      padding: 12px 20px 12px 40px;
+    }
+
+  </style>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <datalist id="languages" >
+    <option *ngFor="let item of predict" value={{item}}>
+  </datalist>
+
+  <ion-row>
+
+    <ion-col col-2>
+      <h1>Leaving from</h1>
+    </ion-col>
+
+    <ion-col col-4>
+      <ion-item>
+        <input placeholder="Search.." type="text" list="languages" [(ngModel)]="DFrom">
+      </ion-item>
+    </ion-col>
+
+    <ion-col col-2>
+      <h1>Driving to</h1>
+    </ion-col>
+
+    <ion-col col-4>
+      <ion-item>
+        <input placeholder="Search.." type="text" list="languages" [(ngModel)]="DToo">
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row justify-content-center align-items-center>
+
+    <ion-col col-1 text-center>
+      <h1>on the</h1>
+    </ion-col>
+
+    <ion-col col-2>
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>
+    </ion-col>
+
+    <ion-col col-1 text-center>
+      <h1>at</h1>
+    </ion-col>
+
+    <ion-col col-2>
+      <ion-item>
+        <ion-label>Time</ion-label>
+        <ion-datetime displayFormat="HH:mm" [(ngModel)]="myTime"></ion-datetime>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row justify-content-center align-items-center>
+    <button ion-button (click)="CreateOpportunity(DFrom,DToo,myDate,myTime)">Create Opportunity</button>
+  </ion-row>
+
+  <ion-card *ngFor="let item of routList">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="Cristian+Round+Profile.png">
+      </ion-avatar>
+      <h2>Jacques Jordaan</h2>
+      <p>Passenger Rating 5</p>
+      <p>Driver Rating 5</p>
+    </ion-item>
+
+    <img src="map.PNG">
+
+    <ion-card-content>
+      <p>Driving From: {{item.From}}</p>
+      <p>Driving Too: {{item.Too}}</p>
+      <p>Leaving on the {{item.Date}} at {{item.Time}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button>
+          Request
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+
+</ion-content>
